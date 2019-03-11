@@ -1,3 +1,5 @@
+package main.java;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -13,6 +15,7 @@ public class PageNode {
         this.isEnding = isEnding;
         this.children = new HashSet<>();
     }
+
 
     public PageNode(PageNode node) {
         this.pageNumber = node.getPageNumber();

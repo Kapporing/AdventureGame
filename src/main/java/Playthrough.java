@@ -1,3 +1,5 @@
+package main.java;
+
 import java.util.*;
 
 public class Playthrough {
@@ -13,4 +15,8 @@ public class Playthrough {
     public void playGame(String option) { }
 
     public void truncateChoices(int pageNumber) { }
+
+    public LinkedList<PageNode> getChoices() {
+        return null;
+    }
 }

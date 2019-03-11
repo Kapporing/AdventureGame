@@ -1,3 +1,5 @@
+package main.java;
+
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
@@ -11,6 +13,10 @@ public class PageTree {
 
     PageTree(PageNode rootData) {
         this.root = new PageNode(rootData);
+    }
+
+    public PageNode getRoot() {
+        return this.root;
     }
 
     public PageNode getNode(int pageNumber) {
