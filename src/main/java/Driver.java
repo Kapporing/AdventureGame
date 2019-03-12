@@ -1,7 +1,3 @@
-package main.java;
-
-import main.java.Playthrough;
-
 import java.io.FileNotFoundException;
 import java.util.List;
 import java.util.Scanner;
@@ -12,7 +8,7 @@ public class Driver {
     private PageTree book;
 
     public void play() throws FileNotFoundException {
-        book = ParseFile.parseFile("main/resources/book1.csv");
+        book = ParseFile.parseFile("src/main/resources/book1.csv");
         playthrough = new Playthrough(book);
         playthrough.playGame();
 
