@@ -1,5 +1,3 @@
-package main.java;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
@@ -7,15 +5,14 @@ import java.util.*;
 
 public class ParseFile {
 
-    private static final Map<Integer, PageNode> map = new HashMap<Integer, PageNode>();
+    private static final Map<Integer, PageNode> map = new HashMap<>();
 
 
     public static PageTree parseFile(String filePath) throws FileNotFoundException {
         Scanner input = new Scanner(new File(filePath));
         int pageNumber = 1;
-//        PageTree tree = new PageTree(new PageNode(pageNumber, "", false)); TODO
         while(input.hasNextLine()) {
-            PageNode page = null;
+            PageNode page = map.get(pageNumber);
             String line = input.nextLine();
             String[] data = line.split(",(?=([^\"]*\"[^\"]*\")*[^\"]*$)");
 
@@ -27,7 +24,13 @@ public class ParseFile {
                 else {
                     map.get(pageNumber).setText(data[data.length - 1]);
                     for (int i = 0; i < data.length - 1; i++) {
-                        // TODO
+                        if (map.containsKey(Integer.valueOf(data[i]))) {
+                            page.addChild(map.get(Integer.valueOf(data[i]))); // Page #4 is not added
+                        } else {
+                            PageNode child = new PageNode(Integer.valueOf(data[i]), null, false);
+                            page.addChild(child);
+                            map.put(Integer.valueOf(data[i]), child);
+                        }
                     }
                 }
 
@@ -47,7 +50,6 @@ public class ParseFile {
 
             pageNumber++;
         }
-
-        return null;
+        return new PageTree(map.get(1));
     }
 }
