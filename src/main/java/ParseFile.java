@@ -25,7 +25,7 @@ public class ParseFile {
                     map.get(pageNumber).setText(data[data.length - 1]);
                     for (int i = 0; i < data.length - 1; i++) {
                         if (map.containsKey(Integer.valueOf(data[i]))) {
-                            page.addChild(map.get(Integer.valueOf(data[i]))); // Page #4 is not added
+                            page.addChild(map.get(Integer.valueOf(data[i])));
                         } else {
                             PageNode child = new PageNode(Integer.valueOf(data[i]), null, false);
                             page.addChild(child);
