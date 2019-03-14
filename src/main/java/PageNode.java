@@ -26,10 +26,6 @@ public class PageNode {
         isEnding = ending;
     }
 
-    public void setPageNumber(int pageNumber) {
-        this.pageNumber = pageNumber;
-    }
-
     public void setText(String text) {
         this.text = text;
     }
