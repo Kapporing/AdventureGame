@@ -33,7 +33,7 @@ public class Playthrough {
                 opt = input.nextInt();
                 isNumber = true;
             } catch (InputMismatchException ime) {
-                System.out.println("That's not a valid input, try again");
+                System.out.println("That's not a valid input type, try again with an option.");
                 input.next();
             }
         }

@@ -1,6 +1,7 @@
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+import java.util.Stack;
 
 public class PageTree {
     private PageNode root;
@@ -33,6 +34,22 @@ public class PageTree {
         return null;
     }
 
-    public List<PageNode> cheat(int desiredEnding) { return null; }
+    public List<PageNode> cheat(int desiredEnding) {
+        return cheat(desiredEnding, new LinkedList<>(), this.root);
+    }
+
+    private List<PageNode> cheat(int desiredEnding, List<PageNode> ways, PageNode page) {
+        if (page.getChildren() != null) {
+            for (PageNode child : page.getChildren()) {
+                List<PageNode> path = new LinkedList<>(ways);
+                path.add(child);
+                cheat(desiredEnding, path, child);
+                if (page.getPageNumber() == desiredEnding) {
+                    return ways;
+                }
+            }
+        }
+        return null;
+    }
 
 }
