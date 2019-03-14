@@ -35,7 +35,9 @@ public class PageTree {
     }
 
     public List<PageNode> cheat(int desiredEnding) {
-        return cheat(desiredEnding, new LinkedList<>(), this.root);
+        LinkedList<PageNode> way = new LinkedList<>();
+        way.add(this.root);
+        return cheat(desiredEnding, way, this.root);
     }
 
     private List<PageNode> cheat(int desiredEnding, List<PageNode> ways, PageNode page) {
@@ -43,11 +45,14 @@ public class PageTree {
             for (PageNode child : page.getChildren()) {
                 List<PageNode> path = new LinkedList<>(ways);
                 path.add(child);
-                cheat(desiredEnding, path, child);
-                if (page.getPageNumber() == desiredEnding) {
-                    return ways;
+                List<PageNode> possibleWay = cheat(desiredEnding, path, child);
+                if (possibleWay != null) {
+                    return possibleWay;
                 }
             }
+        }
+        if (page.getPageNumber() == desiredEnding) {
+            return ways;
         }
         return null;
     }
