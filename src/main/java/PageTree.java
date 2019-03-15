@@ -23,7 +23,7 @@ public class PageTree {
         }
         Queue<PageNode> que = new LinkedList<>();
         que.add(this.root);
-        while (!que.isEmpty()) {
+        while(!que.isEmpty()) {
             PageNode current = que.remove();
             if (current.getPageNumber() == pageNumber) {
                 return current;

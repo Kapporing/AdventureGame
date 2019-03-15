@@ -33,12 +33,12 @@ public class Playthrough {
                 opt = input.nextInt();
                 isNumber = true;
             } catch (InputMismatchException ime) {
-                System.out.println("That's not a valid input type, try again with an option.");
+                System.out.println("=====That's not a valid input type, try again with an option.=====");
                 input.next();
             }
         }
-        if (pageCurrently == null || !possibleChild.contains(book.getNode(Integer.valueOf(opt)))) {
-            System.out.println("That's not a valid option, try again");
+        if (!possibleChild.contains(book.getNode(opt))) {
+            System.out.println("=====That's not a valid option, try again=====");
             playGame(String.valueOf(pageCurrently.getPageNumber()));
             return;
         }

@@ -2,11 +2,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
 
-
 public class ParseFile {
-
     private static final Map<Integer, PageNode> map = new HashMap<>();
-
 
     public static PageTree parseFile(String filePath) throws FileNotFoundException {
         Scanner input = new Scanner(new File(filePath));
@@ -33,11 +30,12 @@ public class ParseFile {
                         }
                     }
                 }
-
-            } else {
+            }
+            else {
                 if (data[0].equals("ENDING")) {
                     page = new PageNode(pageNumber, data[1], true);
-                } else {
+                }
+                else {
                     page = new PageNode(pageNumber, data[data.length - 1], false);
                     for (int i = 0; i < data.length - 1; i++) {
                         PageNode child = new PageNode(Integer.valueOf(data[i]), null, false);
@@ -47,7 +45,6 @@ public class ParseFile {
                 }
                 map.put(pageNumber, page);
             }
-
             pageNumber++;
         }
         return new PageTree(map.get(1));

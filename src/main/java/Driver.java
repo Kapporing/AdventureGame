@@ -8,10 +8,9 @@ public class Driver {
     private PageTree book;
 
     public void play() throws FileNotFoundException {
-        book = ParseFile.parseFile("src/main/resources/book2.csv");
+        book = ParseFile.parseFile("src/main/resources/book1.csv");
         playthrough = new Playthrough(book);
         playthrough.playGame();
-
         System.out.println("You finished the story!");
         showPath();
     }
@@ -39,15 +38,13 @@ public class Driver {
     public static void main(String[] args) throws FileNotFoundException {
         Driver driver = new Driver();
         driver.play();
-
         String choice;
         do {
             System.out.println(
                     "What would you like to do next? " +
-                            "Choose one of [quit, play_again, play_from $page_number, cheat $ending_page_number"
+                            "Choose one of [quit, play_again, play_from $page_number, cheat $ending_page_number]"
             );
             choice = new Scanner(System.in).nextLine();
-
             if (choice.equals("play_again")) {
                 driver.play();
             } else if (choice.startsWith("play_from")) {
@@ -58,7 +55,6 @@ public class Driver {
                 int pageNumber = Integer.valueOf(choice.split(" ")[1].trim());
                 driver.cheat(pageNumber);
             }
-
-        } while (!choice.equals("quit"));
+        } while(!choice.equals("quit"));
     }
 }
