@@ -54,6 +54,7 @@ public class Playthrough {
                 break;
             }
         }
+        this.choices = updatedList;
     }
 
     public LinkedList<PageNode> getChoices() {
