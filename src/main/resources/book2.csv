@@ -1,0 +1,6 @@
+2,3,6,"You are traveling through a maze and come to a fork, will you go left (2) or right (3) or turn around (6)?"
+3,4,"You have come to another fork, will you go left (3) or right (4)?"
+2,5,"You notice a crack on the wall, will you break the wall (5) or continue the maze (2)?"
+ENDING,"You're attacked by a minotaur"
+ENDING,"You escape the maze"
+ENDING,"You were chased by a monkey and got killed"

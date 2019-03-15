@@ -8,7 +8,7 @@ public class Driver {
     private PageTree book;
 
     public void play() throws FileNotFoundException {
-        book = ParseFile.parseFile("src/main/resources/book1.csv");
+        book = ParseFile.parseFile("src/main/resources/book2.csv");
         playthrough = new Playthrough(book);
         playthrough.playGame();
 
