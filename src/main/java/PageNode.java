@@ -14,7 +14,6 @@ public class PageNode {
         this.children = new HashSet<>();
     }
 
-
     public PageNode(PageNode node) {
         this.pageNumber = node.getPageNumber();
         this.isEnding = node.isEnding();
